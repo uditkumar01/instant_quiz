@@ -1,0 +1,26 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App/App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
+import { DataProvider } from "./Context/DataContext/DataContext";
+import { AuthProvider } from "./Context/AuthContext/AuthContext";
+
+ReactDOM.render(
+    <React.StrictMode>
+        <AuthProvider>
+            <DataProvider>
+                <Router>
+                    <App />
+                </Router>
+            </DataProvider>
+        </AuthProvider>
+    </React.StrictMode>,
+    document.getElementById("root")
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

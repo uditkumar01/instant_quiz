@@ -1,0 +1,128 @@
+.waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 17%;
+    overflow: hidden;
+    transition: 0.4s transform ease;
+    transform-origin: bottom center;
+    z-index: 0;
+}
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: wave 1.2s linear infinite;
+    opacity: 0.5;
+}
+.wave-0 {
+    color: aqua;
+}
+.wave-1 {
+    z-index: 1;
+    color: #32bafa;
+    animation-direction: reverse;
+}
+.wave-2 {
+    color: rgb(0, 255, 149);
+    animation-duration: 1s;
+}
+.wave-3 {
+    color: var(--white-color-400);
+    z-index: 1;
+    animation-duration: 1s;
+    opacity: 1;
+    position: relative;
+    bottom: -40px;
+}
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 10px;
+    max-height: 60px;
+    height: 10vw;
+    background: currentColor;
+}
+
+.water svg {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 99.9%;
+}
+.water:first-of-type {
+    transform: translate(-100%, 0);
+}
+svg {
+    fill: currentColor;
+}
+@keyframes wave {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(50%, 0.5em, 0);
+    }
+    100% {
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+/* dolphins */
+
+.dolphin-light {
+    background: url(../../images/dolphin-light1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    left: 80%;
+    bottom: 2rem;
+    transform: rotate(-210deg);
+    transform-origin: 0% 100%;
+    animation: dolphinJump 4s infinite linear;
+}
+.dolphin-dark {
+    background: url(../../images/dolphin-dark1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    left: 30%;
+    bottom: 2rem;
+    transform: rotate(-210deg);
+    transform-origin: 0% 100%;
+    animation: dolphinJump 4.5s infinite linear;
+    animation-delay: 2s;
+}
+@keyframes dolphinJump {
+    0% {
+        transform: rotate(-210deg);
+        transform-origin: 0% 100%;
+        height: 60px;
+        opacity: 1;
+    }
+    40% {
+        transform: rotate(50deg);
+        transform-origin: 0% 100%;
+        height: 80px;
+        visibility: hidden;
+    }
+    100% {
+        transform: rotate(50deg);
+        transform-origin: 0% 100%;
+        height: 80px;
+        visibility: hidden;
+        opacity: 1;
+    }
+}

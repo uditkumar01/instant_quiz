@@ -1,0 +1,9 @@
+export { Navbar } from "./Navbar/Navbar";
+export { Waves } from "./Waves/Waves";
+export { Header } from "./Header/Header";
+export { Body } from "./Body/Body";
+export { CardSm } from "./CardSm/CardSm";
+export { CardCollection } from "./CardCollection/CardCollection";
+export { Footer } from "./Footer/Footer";
+export { Question } from "./Question/Question";
+export { AllRoutes } from './AllRoutes/AllRoutes';

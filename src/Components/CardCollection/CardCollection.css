@@ -1,0 +1,8 @@
+.card-collection {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+@media only screen and (max-width: 1682px) {
+
+}
