@@ -4,7 +4,6 @@
     left: 0;
     width: 100%;
     height: 17%;
-    overflow: hidden;
     transition: 0.4s transform ease;
     transform-origin: bottom center;
     z-index: 0;
@@ -67,7 +66,7 @@ svg {
         transform: translate3d(0, 0, 0);
     }
     50% {
-        transform: translate3d(50%, 0.5em, 0);
+        transform: translate3d(50%, 0.7em, 0);
     }
     100% {
         transform: translate3d(100%, 0, 0);
@@ -105,6 +104,7 @@ svg {
     animation: dolphinJump 4.5s infinite linear;
     animation-delay: 2s;
 }
+
 @keyframes dolphinJump {
     0% {
         transform: rotate(-210deg);
@@ -124,5 +124,20 @@ svg {
         height: 80px;
         visibility: hidden;
         opacity: 1;
+    }
+}
+
+
+@media only screen and (max-width:420px){
+    .wave-3 {
+        color: var(--white-color-400);
+        z-index: 1;
+        animation-duration: 1s;
+        opacity: 1;
+        position: relative;
+        bottom: -30px;
+    }
+    .wave-2 {
+
     }
 }
