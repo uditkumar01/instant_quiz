@@ -69,6 +69,8 @@ export function Result() {
         }
     }, []);
 
+    console.log(state.userAttempt);
+
     let userAnswer: UserAttemptType | undefined,
         totalCorrectAnswers: number | undefined,
         totalIncorrectAnswers: number | undefined,
@@ -91,7 +93,13 @@ export function Result() {
 
         totalScore = round(
             state.userAttempt.reduce((total, val) => {
-                return total + val.score;
+                const quesObj = state.topicQuiz.find(
+                    (ques) => ques._id === val.questionId
+                );
+                if (val.optionId === quesObj?.correct_answer) {
+                    return total + val.score;
+                }
+                return total;
             }, 0),
             2
         );

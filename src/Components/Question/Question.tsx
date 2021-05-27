@@ -47,7 +47,7 @@ function SingleQuestion({
                     console.log("progess", progress);
                     return progress + 1;
                 }
-                clearInterval(idOfInterval);
+                clearInterval(intervalId as NodeJS.Timeout);
                 setAnimation("fade-out-down");
                 return progress;
             });
