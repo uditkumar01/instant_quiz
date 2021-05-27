@@ -1,0 +1,79 @@
+.card-sm .MuiCard-root {
+    margin: 2rem 0;
+}
+.card-sm .MuiCardMedia-root {
+    background: url(../../images/quiz.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 350px;
+}
+/* .card-sm.MuiCard-root {
+    animation: 3s ease-out 0s 1 fade-in-down;
+} */
+.card-sm .MuiCardActions-root {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-sm .MuiButtonBase-root.my-play-btn {
+    border-radius: 50px;
+}
+
+@media only screen and (max-width: 1600px) {
+    .MuiCard-root:nth-child(2n) {
+        margin-right: 10rem;
+        margin-left: 2rem;
+    }
+    .MuiCard-root:nth-child(2n-1) {
+        margin-left: 10rem;
+        margin-right: 2rem;
+    }
+}
+@media only screen and (max-width: 1160px) {
+    .MuiCard-root {
+        margin: 2rem 1rem !important;
+        width: 700px;
+        max-width: none !important;
+    }
+    .MuiCard-root img {
+        height: 300px;
+    }
+    .MuiCard-root h2 {
+        font-size: 1.8rem;
+        margin-top: 1rem;
+    }
+    .MuiCard-root p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .MuiCard-root h2 {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    .MuiCard-root p {
+        font-size: 0.93rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .MuiCard-root img {
+        height: 220px;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .MuiCard-root img {
+        height: 150px;
+    }
+    .MuiCard-root h2 {
+        font-size: 1.2rem;
+    }
+    .MuiCard-root {
+        margin: 1rem 0.2rem !important;
+    }
+}

@@ -1,0 +1,24 @@
+:root {
+    --blue-color-400: #007090;
+    --blue-color-500: #006989;
+    --blue-color-300: #01a7c2;
+    --turquoise-color: rgb(86, 192, 160);
+    --white-color-500: #fcfcfc;
+    --white-color-400: #eaebed;
+    --white-color-300: #a3bac3;
+    --black-color-500: rgb(41, 41, 41);
+    --color-muted: rgb(119, 119, 119);
+}
+.App {
+    text-align: center;
+    background: #dadada;
+    max-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.container {
+    overflow: auto;
+    max-width: 100vw;
+    height: 100vh;
+}

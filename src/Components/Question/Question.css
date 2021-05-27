@@ -1,0 +1,139 @@
+.question-container {
+    padding-top: 4rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        to bottom,
+        var(--blue-color-400) 10%,
+        var(--turquoise-color)
+    );
+}
+/* https://images.pexels.com/photos/1036644/pexels-photo-1036644.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260 */
+.question {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 1rem;
+    padding-top: 0;
+    text-align: left;
+    width: 70%;
+    border-radius: 4px;
+    max-width: 100%;
+    transition: all 0.8s ease;
+}
+.upper-question {
+    background: var(--white-color-400);
+    border-radius: 4px;
+    position: relative;
+    top: -40px;
+    padding: 1rem 2rem;
+    padding-top: 2rem;
+    position: relative;
+    transition: all 0.8s ease;
+    overflow: hidden;
+}
+.question .upper-question {
+    animation: 1s fade-in-down 1 linear;
+}
+
+.question .option:nth-child(2n-1) {
+    animation: 1s bounce-in-right 1 linear;
+}
+
+.question .option:nth-child(2n) {
+    animation: 1s bounce-in-left 1 linear;
+}
+.question .upper-question {
+    animation: 1s fade-in-down 1 linear;
+}
+
+.question.fade-out-down .upper-question {
+    animation: 1s fade-out-down 1 linear;
+}
+
+.question.fade-in-down .option:nth-child(2n-1) {
+    animation: 1s bounce-in-right 1 linear;
+}
+
+.question.fade-in-down .option:nth-child(2n) {
+    animation: 1s bounce-in-left 1 linear;
+}
+
+/* @keyframes slideLeft {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-150%);
+    }
+} */
+
+.upper-question h1 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+.upper-question h2 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.upper-question-bar {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.8s ease;
+}
+.option .MuiButtonBase-root {
+    width: 100%;
+    padding: 1rem 0;
+    margin: 0.5rem 0;
+    background: var(--white-color-400);
+    text-transform: none;
+}
+.option .MuiButton-label {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 1.4rem;
+    font-weight: 500;
+}
+.option {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-line;
+    width: 90%;
+    transition: all 0.8s ease;
+}
+.options {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.8s ease;
+}
+
+.upper-question .MuiLinearProgress-root {
+    background: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.upper-question .MuiLinearProgress-bar {
+    background: linear-gradient(
+        rgb(19, 226, 122),
+        rgb(19, 226, 198)
+    ) !important;
+}
+
+@media only screen and (max-width: 700px) {
+    .question{
+        min-width: 98%;
+    }
+}
