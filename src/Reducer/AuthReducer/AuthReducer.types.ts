@@ -1,4 +1,4 @@
 export interface AuthActionType {
-    type: string;
+    type: "LOGIN";
     payload: boolean;
 }

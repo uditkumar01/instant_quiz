@@ -8,27 +8,36 @@ import {
 import firebase, { auth } from "../../Firebase/Firebase";
 import { createUserEntity } from "../../Firebase/User";
 import { authReducer } from "../../Reducer/AuthReducer/AuthReducer";
-import { AuthContextValue, AuthInitialStateType } from "./AuthContext.types";
+import {
+    AuthContextValue,
+    AuthInitialStateType,
+    SignInOutResType,
+} from "./AuthContext.types";
 
 const AuthContext = createContext<AuthContextValue>({} as AuthContextValue);
 
-const signIn = () => {
+const signIn = (): SignInOutResType => {
     const provider = new firebase.auth.GoogleAuthProvider();
+
     auth()
         .signInWithPopup(provider)
         .catch((err) => {
             console.log("signIn error", err.message, err);
+            return { error: "something went wrong", success: false };
         });
+    return { success: true };
 };
 
-const signOut = () => {
+const signOut = (): SignInOutResType => {
     if (auth().currentUser) {
         auth()
             .signOut()
             .catch((err) => {
                 console.log("signOut error", err.message, err);
+                return { error: "something went wrong", success: false };
             });
     }
+    return { success: true };
 };
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -42,6 +51,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                     payload: true,
                 });
                 createUserEntity(user);
+            } else {
+                authDispatch({
+                    type: "LOGIN",
+                    payload: false,
+                });
             }
         });
         return () => {

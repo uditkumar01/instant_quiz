@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import useAuthContext from "../../Context/AuthContext/AuthContext";
-import firebase from "../../Firebase/Firebase";
+import firebase from "firebase";
 import { Waves } from "../Waves/Waves";
 import "./Header.css";
+import { auth } from "../../Firebase/Firebase";
 function GoogleButton({
     onClick,
     disabled,
@@ -46,6 +48,8 @@ function GoogleButton({
 }
 export function Header() {
     const { signIn } = useAuthContext();
+    const { authState, authDispatch } = useAuthContext();
+    console.log(authState.isLoggedIn, "login state");
     return (
         <div className={`container-header`}>
             <Waves />
@@ -64,7 +68,19 @@ export function Header() {
                             make learning more interesting and fun.
                         </p>
 
-                        <GoogleButton onClick={() => signIn()} />
+                        {!authState.isLoggedIn && (
+                            <GoogleButton
+                                onClick={() => {
+                                    const res = signIn();
+                                    if (!res.success) {
+                                        authDispatch({
+                                            type: "LOGIN",
+                                            payload: false,
+                                        });
+                                    }
+                                }}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

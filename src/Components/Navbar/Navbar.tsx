@@ -105,15 +105,17 @@ export function Navbar() {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
         React.useState<null | HTMLElement>(null);
     const navigate = useNavigate();
-    const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-    const { signOut, signIn } = useAuthContext();
+    const { signOut, signIn, authState, authDispatch } = useAuthContext();
 
-    useEffect(() => {
-        setCurrentUser(auth().currentUser);
-    }, [auth().currentUser]);
+    // useEffect(() => {
+    //     authDispatch({
+    //         type: "LOGIN",
+    //         payload: true,
+    //     });
+    // }, [auth().currentUser]);
 
     const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -143,12 +145,17 @@ export function Navbar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            {currentUser ? (
+            {authState.isLoggedIn ? (
                 <MenuItem
                     onClick={() => {
                         handleMenuClose();
-                        signOut();
-                        setCurrentUser(null);
+                        const res = signOut();
+                        if (!res.success) {
+                            authDispatch({
+                                type: "LOGIN",
+                                payload: true,
+                            });
+                        }
                         navigate("/");
                     }}
                 >
@@ -269,7 +276,13 @@ export function Navbar() {
                             onClick={handleProfileMenuOpen}
                             color="inherit"
                         >
-                            <ImageAvatars src={currentUser?.photoURL} />
+                            <ImageAvatars
+                                src={
+                                    authState.isLoggedIn
+                                        ? auth().currentUser?.photoURL
+                                        : undefined
+                                }
+                            />
                         </IconButton>
                     </div>
                     <div className={classes.sectionMobile}>
